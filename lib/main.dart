@@ -1,4 +1,4 @@
-//try sekali lagi
+//try sekali lagi.
 
 //import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
