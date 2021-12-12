@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'module_page.dart';
+
 
 class CoursePage extends StatefulWidget {
   const CoursePage({Key? key}) : super(key: key);
@@ -12,9 +14,8 @@ class _CoursePageState extends State<CoursePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.greenAccent,
-        appBar: AppBar(title: const Text("ICT", style: TextStyle(color: Colors.black,),), backgroundColor: Colors.yellowAccent,
-        centerTitle: true,),
+        backgroundColor: Colors.white,
+        //appBar: AppBar(title: const Text("ICT", style: TextStyle(color: Colors.black,),), backgroundColor: Colors.yellowAccent, centerTitle: true,),
 
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -23,7 +24,7 @@ class _CoursePageState extends State<CoursePage> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 35,
+                  height: 15,
                 ),
                 Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -33,8 +34,8 @@ class _CoursePageState extends State<CoursePage> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
-                    color: Colors.white,
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const ModulePage()));},
+                    color: Colors.yellow,
                     child: const Text(
                       'Programming',
                       style: TextStyle(
@@ -56,7 +57,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.white,
+                    color: Colors.yellow,
                     child: const Text(
                       'UI Design',
                       style: TextStyle(
@@ -78,7 +79,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.white,
+                    color: Colors.yellow,
                     child: const Text(
                       'Digital Media Design', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -100,7 +101,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.white,
+                    color: Colors.yellow,
                     child: const Text(
                       'Enterprise Management Technology', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -122,7 +123,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.white,
+                    color: Colors.yellow,
                     child: const Text(
                       'Information Assurance and Security', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -133,23 +134,6 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                 ),
 
-                const SizedBox(height: 190,),
-                Container(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  width: 230,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: MaterialButton(
-                    onPressed: () {},
-                    color: Colors.yellowAccent,
-                    child: const Text(
-                      'ENROLL',
-                      style: TextStyle(fontSize: 20, color: Colors.black,),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

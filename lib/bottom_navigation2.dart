@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:project_test/home_page.dart';
+import 'package:project_test/Contents/course_page.dart';
 import 'package:project_test/notes_page.dart';
 import 'package:project_test/profile_page.dart';
 import 'package:project_test/bookmark_page.dart';
 
-class BotNavigation extends StatelessWidget {
-  const BotNavigation({Key? key}) : super(key: key);
+class BotNavigation2 extends StatelessWidget {
+  const BotNavigation2 ({Key? key}) : super(key: key);
 
   // static const String _title = 'ITUTORPOCKET';
 
@@ -25,11 +25,11 @@ class Navigation extends StatefulWidget {
 }
 
 class _Navigation extends State<Navigation> {
-  
+
   int _selectedIndex = 0;
   final List<Widget> _children =
   [
-    const HomePage(),
+    const CoursePage(),
     const NotesPage(),
     const BookmarkPage(),
     const ProfilePage(),
@@ -45,8 +45,8 @@ class _Navigation extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ITUTORPOCKET'),
-        backgroundColor: Colors.greenAccent,
+        title: const Text("ICT", style: TextStyle(color: Colors.black,),), backgroundColor: Colors.greenAccent,
+        centerTitle: true,
       ),
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
