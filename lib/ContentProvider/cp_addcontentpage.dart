@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project_test/Models/coursemodule_model.dart';
 
 class CPAddModuleContent extends StatefulWidget {
@@ -17,7 +18,7 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
   //var firebaseUser = FirebaseAuth.instance.currentUser;
   var firestoreInstance = FirebaseFirestore.instance;
   var _selectedCourse;
-  Text hintText = Text("Choose The Module's Course");
+  Text hintText = const Text("Choose The Module's Course");
   final _formKey = GlobalKey<FormState>();
   List<String> courseList = ["ICT", "ENGINEER", "LAW", "ARCHITECTURE"];
 
@@ -188,8 +189,13 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     );
   }
 
-  cpConfirmAddContent(String course, String module, String title, String desc,
-      String urllink) async {
+  cpConfirmAddContent(
+    String course,
+    String module,
+    String title,
+    String desc,
+    String urllink,
+  ) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
 
     courseModuleModel modulemodel = courseModuleModel();
@@ -208,9 +214,10 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
         .collection("module")
         .doc(module)
         .collection("content")
-        .doc(firebaseUser.uid)
+        .doc("title")
         .set(modulemodel.toMap());
 
+    Fluttertoast.showToast(msg: "Content added successfully");
     Navigator.of(context).pop();
   }
 }
