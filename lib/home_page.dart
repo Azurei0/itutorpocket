@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 //import 'package:project_test/Contents/course_page.dart';
-import 'package:project_test/bottom_navigation2.dart';
+import 'package:project_test/Bottom_Navigation/bottom_navigation2.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
