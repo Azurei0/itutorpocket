@@ -22,10 +22,10 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
   final _formKey = GlobalKey<FormState>();
   List<String> courseList = ["ICT", "ENGINEER", "LAW", "ARCHITECTURE"];
 
+  final moduleController = TextEditingController();
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final urlController = TextEditingController();
-  final moduleController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +129,8 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
           onPressed: () {
             cpConfirmAddContent(
                 _selectedCourse,
-                titleController.text,
                 moduleController.text,
+                titleController.text,
                 descriptionController.text,
                 urlController.text);
           }),
@@ -207,6 +207,10 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     modulemodel.url = urlController.text;
     modulemodel.authoruid = firebaseUser!.uid;
     modulemodel.authorname = firebaseUser.displayName;
+    log(firebaseUser.uid);
+    log(moduleController.text);
+    log(module);
+    log(title);
 
     firestoreInstance
         .collection("course")
@@ -214,7 +218,7 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
         .collection("module")
         .doc(module)
         .collection("content")
-        .doc("title")
+        .doc(title)
         .set(modulemodel.toMap());
 
     Fluttertoast.showToast(msg: "Content added successfully");

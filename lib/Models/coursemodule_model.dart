@@ -32,6 +32,7 @@ class courseModuleModel {
   Map<String, dynamic> toMap() {
     return {
       'course': course,
+      'module': module,
       'title': title,
       'description': description,
       'url': url,
