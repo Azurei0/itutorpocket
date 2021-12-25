@@ -201,7 +201,7 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     courseModuleModel modulemodel = courseModuleModel();
 
     modulemodel.course = _selectedCourse;
-    modulemodel.module = moduleController.text;
+    modulemodel.module = moduleController.text.toUpperCase();
     modulemodel.title = titleController.text;
     modulemodel.description = descriptionController.text;
     modulemodel.url = urlController.text;
@@ -209,8 +209,19 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     modulemodel.authorname = firebaseUser.displayName;
     log(firebaseUser.uid);
     log(moduleController.text);
-    log(module);
+    log(modulemodel.module!);
     log(title);
+
+    var courseRef = firestoreInstance.collection("course").doc(course);
+
+    courseRef
+        .update({
+          "author": FieldValue.arrayUnion([firebaseUser.uid])
+        })
+        .then((value) => {})
+        .catchError((error) => courseRef.set({
+              "author": FieldValue.arrayUnion([firebaseUser.uid])
+            }));
 
     firestoreInstance
         .collection("course")

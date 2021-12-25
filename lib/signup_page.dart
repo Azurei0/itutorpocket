@@ -227,10 +227,11 @@ class _SignupPageState extends State<SignupPage> {
     userModel.email = user!.email;
     userModel.uid = user.uid;
     userModel.username = usernameEditingController.text;
+    userModel.userType = "student";
 
     await firebaseFirestore
         .collection("user")
-        .doc(user.uid)
+        .doc(user.email)
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Signed Up Successfully");
 
@@ -251,10 +252,11 @@ class _SignupPageState extends State<SignupPage> {
     cpModel.email = contentprovider!.email;
     cpModel.uid = contentprovider.uid;
     cpModel.username = usernameEditingController.text;
+    cpModel.userType = "contentProvider";
 
     await firebaseFirestore
-        .collection("contentProvider")
-        .doc(contentprovider.uid)
+        .collection("user")
+        .doc(contentprovider.email)
         .set(cpModel.toMap());
     Fluttertoast.showToast(msg: "Signed Up Successfully");
 

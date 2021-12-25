@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -76,9 +77,8 @@ class _LoginPageState extends State<LoginPage> {
         child: MaterialButton(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
-          onPressed: () {
-            logIn(emailController.text, passwordController.text);
-          },
+          onPressed: () =>
+              signin(emailController.text, passwordController.text),
           child: const Text(
             "Login",
             textAlign: TextAlign.center,
@@ -160,4 +160,35 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
+
+  signin(String email, String password) async {
+    var firestore = FirebaseFirestore.instance;
+    var _firebaseUser = FirebaseAuth.instance.currentUser;
+    try {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((result) =>
+              firestore.collection("user").doc(email).get().then((value) {
+                var userType = value.data()?["userType"];
+                if (userType == "contentProvider") {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const CPShowModuleContent()));
+                } else if (userType == "student") {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const BotNavigation()));
+                }
+              }));
+      //Success
+      // Navigator.of(context).pushReplacement(
+      //     MaterialPageRoute(builder: (context) => BotNavigation()));
+    } on FirebaseAuthException catch (error) {
+      Fluttertoast.showToast(msg: error.message!, gravity: ToastGravity.TOP);
+    }
+  }
+
+  // signInChecker(String email) async {
+  //   var firestore = FirebaseFirestore.instance;
+
+  //   firestore.collection("user")
+  // }
 }
