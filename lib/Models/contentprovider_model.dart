@@ -1,21 +1,22 @@
-class UserModel {
+class CPModel {
+  String? course;
   String? uid;
   String? email;
   String? username;
   String? userType;
 
-  UserModel({this.uid, this.email, this.username, this.userType});
+  CPModel({this.uid, this.email, this.username, this.userType});
 
-  //receiving data from server
-  factory UserModel.fromMap(map) {
-    return UserModel(
+  //receive data from server
+  factory CPModel.fromMap(map) {
+    return CPModel(
         uid: map['uid'],
         email: map['email'],
         username: map['username'],
         userType: map['userType']);
   }
 
-  UserModel.fromData(Map<String, dynamic> data)
+  CPModel.fromData(Map<String, dynamic> data)
       : uid = data['uid'],
         email = data['email'],
         username = data['username'],

@@ -18,13 +18,6 @@ class _NotesPageState extends State<NotesPage> {
     notesDescriptionMaxLength=notesDescriptionMaxLines*notesDescriptionMaxLines;
   }
 
-  // @override
-  // void dispose(){
-  //  super.dispose();
-  //  notesDescriptionController.dispose();
-  //  notesHeadingController.dispose();
- // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,24 +93,6 @@ class _NotesPageState extends State<NotesPage> {
           ),
           ),
           ),
-         secondaryBackground: ClipRRect(borderRadius: BorderRadius.circular(5.5),
-         child: Container(color: Colors.redAccent,
-             child: Align(alignment: Alignment.centerRight,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                    Icon(Icons.delete,
-                    color: Colors.white,
-                    ),
-                    Text("Delete",style: TextStyle(color: Colors.white),
-                    ),
-                    ],
-                ),
-                ),
-                 ),
-   ),),
 
           child: noteList(index),
         ),
@@ -208,7 +183,7 @@ void _settingModalBottomSheet(context)
             child: Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  const Text("New Note",
+                  const Text("NEW NOTE",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
@@ -230,10 +205,10 @@ void _settingModalBottomSheet(context)
                     },
                     child: Row(
                       children: const [
-                        Text("Save",
+                        Text("SAVE",
                         style: TextStyle(
                           fontSize:20,
-                          color: Colors.blue,
+                          color: Colors.green,
                           fontWeight: FontWeight.w500,
                         ),
                         ),

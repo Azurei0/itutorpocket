@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_test/Contents/content_page.dart';
+//import 'package:project_test/Contents/content_page.dart';
+import 'package:project_test/Contents/module_quiz.dart';
 
 
 class ModulePage2 extends StatefulWidget {
@@ -35,7 +36,7 @@ class _ModulePage2State extends State<ModulePage2> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const ContentPage()));
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));
                     },
                     color: Colors.white,
                     child: const Text(

@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
     FirebaseFirestore.instance
         .collection("user")
-        .doc(user!.uid)
+        .doc(user!.email)
         .get()
         .then((value){
           loggedIn = UserModel.fromMap(value.data());
