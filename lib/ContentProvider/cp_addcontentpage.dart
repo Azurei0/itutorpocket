@@ -22,10 +22,10 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
   final _formKey = GlobalKey<FormState>();
   List<String> courseList = ["ICT", "ENGINEER", "LAW", "ARCHITECTURE"];
 
+  final moduleController = TextEditingController();
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final urlController = TextEditingController();
-  final moduleController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +129,8 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
           onPressed: () {
             cpConfirmAddContent(
                 _selectedCourse,
-                titleController.text,
                 moduleController.text,
+                titleController.text,
                 descriptionController.text,
                 urlController.text);
           }),
@@ -201,12 +201,27 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     courseModuleModel modulemodel = courseModuleModel();
 
     modulemodel.course = _selectedCourse;
-    modulemodel.module = moduleController.text;
+    modulemodel.module = moduleController.text.toUpperCase();
     modulemodel.title = titleController.text;
     modulemodel.description = descriptionController.text;
     modulemodel.url = urlController.text;
     modulemodel.authoruid = firebaseUser!.uid;
     modulemodel.authorname = firebaseUser.displayName;
+    log(firebaseUser.uid);
+    log(moduleController.text);
+    log(modulemodel.module!);
+    log(title);
+
+    var courseRef = firestoreInstance.collection("course").doc(course);
+
+    courseRef
+        .update({
+          "author": FieldValue.arrayUnion([firebaseUser.uid])
+        })
+        .then((value) => {})
+        .catchError((error) => courseRef.set({
+              "author": FieldValue.arrayUnion([firebaseUser.uid])
+            }));
 
     firestoreInstance
         .collection("course")
@@ -214,7 +229,7 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
         .collection("module")
         .doc(module)
         .collection("content")
-        .doc("title")
+        .doc(title)
         .set(modulemodel.toMap());
 
     Fluttertoast.showToast(msg: "Content added successfully");
