@@ -5,7 +5,7 @@ import 'package:project_test/ContentProvider/cp_add.dart';
 import 'package:project_test/ContentProvider/cp_edit.dart';
 import 'package:project_test/Models/contentprovider_model.dart';
 import 'package:project_test/Models/coursemodel_new.dart';
-import 'package:project_test/bottom_navigation.dart';
+//import 'package:project_test/bottom_navigation.dart';
 import 'package:project_test/library/courselib.dart' as courselib;
 
 class CPCourseList extends StatefulWidget {
