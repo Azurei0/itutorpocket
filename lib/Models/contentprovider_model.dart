@@ -1,3 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
 class CPModel {
   String? course;
   String? uid;
@@ -32,3 +40,41 @@ class CPModel {
     };
   }
 }
+
+// class CPCourseAssoc {
+//   FirebaseFirestore firestore = FirebaseFirestore.instance;
+//   var cpUser = FirebaseAuth.instance.currentUser;
+//   initialize() {}
+
+//   Future<void> addCPCourse({String? course}) async {
+//     var cpRef = firestore.collection('contentProvider').doc(cpUser!.uid);
+//     await cpRef.update({
+//       'course': FieldValue.arrayUnion([course])
+//     }).catchError((e) => cpRef.set({
+//           'course': FieldValue.arrayUnion([course])
+//         }));
+//   }
+
+  // Future<List> getCPCourse() async {
+  //   QuerySnapshot querySnapshot;
+  //   var c2cpRef = firestore.collection('coursetoCP');
+  //   List cpCourseList = [];
+  //   try {
+  //     querySnapshot =
+  //         await c2cpRef.where('cpList', arrayContains: cpUser!.uid).get();
+  //     if (querySnapshot.docs.isNotEmpty) {
+  //       for (var doc in querySnapshot.docs.toList()) {
+  //         Map a = {
+  //           'course': doc['courseName'],
+  //         };
+  //         cpCourseList.add(a);
+  //       }
+  //     }
+  //   } catch (e) {
+  //     if (kDebugMode) {
+  //       print(e);
+  //     }
+  //   }
+  //   return cpCourseList;
+  // }
+  // }

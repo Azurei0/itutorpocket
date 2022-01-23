@@ -12,7 +12,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedIn = UserModel();
 
@@ -23,9 +22,9 @@ class _ProfilePageState extends State<ProfilePage> {
         .collection("user")
         .doc(user!.uid)
         .get()
-        .then((value){
-          loggedIn = UserModel.fromMap(value.data());
-          setState(() {});
+        .then((value) {
+      loggedIn = UserModel.fromMap(value.data());
+      setState(() {});
     });
   }
 
@@ -44,15 +43,22 @@ class _ProfilePageState extends State<ProfilePage> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Center(
-                child: Image.asset("assets/images/profile_icon.png",height: 150),
+                child:
+                    Image.asset("assets/images/profile_icon.png", height: 150),
               ),
               //const SizedBox(height: 50,),
-              Text("${loggedIn.username}", style: const TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.w500),
+              Text(
+                "${loggedIn.username}",
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Container(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 width: double.infinity,
@@ -65,19 +71,26 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.yellowAccent,
                   child: const Text(
                     'CERTIFICATE',
-                    style: TextStyle(fontSize: 20, color: Colors.black,),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
 
               Container(
                 padding: const EdgeInsets.all(20), //color: Colors.greenAccent,
-                  child: Text("${loggedIn.email}", style: const TextStyle(
+                child: Text(
+                  "${loggedIn.email}",
+                  style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.w500),
-                  ),
                 ),
+              ),
 
-              const SizedBox(height: 190,),
+              const SizedBox(
+                height: 190,
+              ),
               Container(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 width: 250,
@@ -86,19 +99,23 @@ class _ProfilePageState extends State<ProfilePage> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: MaterialButton(
-                  onPressed: () {logout(context);},
+                  onPressed: () {
+                    logout(context);
+                  },
                   color: Colors.grey,
                   child: const Text(
                     'LOGOUT',
-                    style: TextStyle(fontSize: 20, color: Colors.black,),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
 
               //ActionChip(label: const Text("LOGOUT"), onPressed: (){
-                //logout(context);
+              //logout(context);
               //}),
-
             ],
           ),
         ),
@@ -106,8 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Future<void> logout(BuildContext context) async
-  {
+  Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const LoginPage()));

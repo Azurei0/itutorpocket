@@ -1,5 +1,5 @@
 import 'dart:developer';
-
+// tak pakai
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -212,14 +212,20 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
     log(modulemodel.module!);
     log(title);
 
-    var courseRef = firestoreInstance.collection("course").doc(course);
+    // var courseRef = firestoreInstance.collection("course").doc(course);
+    var moduleRef = firestoreInstance
+        .collection("course")
+        .doc(course)
+        .collection("module")
+        .doc(module);
 
-    courseRef
+    moduleRef
         .update({
           "author": FieldValue.arrayUnion([firebaseUser.uid])
         })
         .then((value) => {})
-        .catchError((error) => courseRef.set({
+        // ignore: invalid_return_type_for_catch_error
+        .catchError((e) => moduleRef.set({
               "author": FieldValue.arrayUnion([firebaseUser.uid])
             }));
 
@@ -229,7 +235,7 @@ class _CPAddModuleContentState extends State<CPAddModuleContent> {
         .collection("module")
         .doc(module)
         .collection("content")
-        .doc(title)
+        .doc()
         .set(modulemodel.toMap());
 
     Fluttertoast.showToast(msg: "Content added successfully");

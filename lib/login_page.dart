@@ -1,8 +1,15 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:project_test/ContentProvider/cp_showcontent.dart';
+import 'package:project_test/ContentProvider/cp_profilepage.dart';
+//import 'package:project_test/ContentProvider/cp_showcontent.dart';
+import 'ContentProvider/cp_courselist.dart';
+import 'package:project_test/ContentProvider/cp_courselist.dart';
+import 'package:project_test/ContentProvider/cp_testPage.dart';
 import 'bottom_navigation.dart';
 import 'signup_page.dart';
 
@@ -14,6 +21,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+
   //form key
   final _formKey = GlobalKey<FormState>();
 
@@ -143,52 +152,45 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  //login function
-  void logIn(String email, String password) async {
-    if (_formKey.currentState!.validate()) {
-      await _auth
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then((uid) => {
-                Fluttertoast.showToast(msg: "Login Successful"),
-                // Navigator.of(context).pushReplacement(MaterialPageRoute(
-                //  builder: (context) => const BotNavigation())),
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const CPShowModuleContent())),
-              })
-          .catchError((e) {
-        Fluttertoast.showToast(msg: e!.message);
-      });
-    }
-  }
+  //login function == OLD
+  // void logIn(String email, String password) async {
+  //   if (_formKey.currentState!.validate()) {
+  //     await _auth
+  //         .signInWithEmailAndPassword(email: email, password: password)
+  //         .then((uid) => {
+  //               Fluttertoast.showToast(msg: "Login Successful"),
+  //               // Navigator.of(context).pushReplacement(MaterialPageRoute(
+  //               //  builder: (context) => const BotNavigation())),
+  //               Navigator.of(context).pushReplacement(MaterialPageRoute(
+  //                   builder: (context) => const CPCourseList())),
+  //             })
+  //         .catchError((e) {
+  //       Fluttertoast.showToast(msg: e!.message);
+  //     });
+  //   }
+  // }
 
   signin(String email, String password) async {
     var firestore = FirebaseFirestore.instance;
-    var _firebaseUser = FirebaseAuth.instance.currentUser;
+    //var _firebaseUser = FirebaseAuth.instance.currentUser;
     try {
       await _auth
           .signInWithEmailAndPassword(email: email, password: password)
           .then((result) =>
               firestore.collection("user").doc(email).get().then((value) {
+                // check userType
                 var userType = value.data()?["userType"];
                 if (userType == "contentProvider") {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const CPShowModuleContent()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => CPCourseList()));
                 } else if (userType == "student") {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const BotNavigation()));
-                }
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => BotNavigation()));
+                } // Success
               }));
-      //Success
-      // Navigator.of(context).pushReplacement(
-      //     MaterialPageRoute(builder: (context) => BotNavigation()));
     } on FirebaseAuthException catch (error) {
-      Fluttertoast.showToast(msg: error.message!, gravity: ToastGravity.TOP);
+      log(error.toString());
+      Fluttertoast.showToast(gravity: ToastGravity.TOP, msg: error.message!);
     }
   }
-
-  // signInChecker(String email) async {
-  //   var firestore = FirebaseFirestore.instance;
-
-  //   firestore.collection("user")
-  // }
 }
