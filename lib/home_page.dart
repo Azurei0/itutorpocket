@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
+//import 'package:page_transition/page_transition.dart';
 //import 'package:project_test/Contents/course_page.dart';
-import 'package:project_test/bottom_navigation2.dart';
+import 'package:project_test/Bottom_Navigation/bottom_navigation2.dart';
+import 'package:project_test/Contents/engine_content.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const BotNavigation2()));},
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const BotNavigation2()));},
                     color: Colors.yellow,
                     child: const Text(
                       'ICT',
@@ -71,7 +72,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const EContentPage()));},
                     color: Colors.yellow,
                     child: const Text(
                       'ENGINEERING',

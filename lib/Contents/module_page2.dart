@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:project_test/Contents/module_page2.dart';
+//import 'package:project_test/Contents/content_page.dart';
+import 'package:project_test/Contents/module_quiz.dart';
 
 
-class ModulePage extends StatefulWidget {
-  const ModulePage({Key? key}) : super(key: key);
+class ModulePage2 extends StatefulWidget {
+  const ModulePage2({Key? key}) : super(key: key);
 
   @override
-  _ModulePageState createState() => _ModulePageState();
+  _ModulePage2State createState() => _ModulePage2State();
 }
 
-class _ModulePageState extends State<ModulePage> {
+class _ModulePage2State extends State<ModulePage2> {
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,14 @@ class _ModulePageState extends State<ModulePage> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));
+                    },
                     color: Colors.white,
                     child: const Text(
                       'C++',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -64,7 +65,7 @@ class _ModulePageState extends State<ModulePage> {
                       'Java',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -86,7 +87,7 @@ class _ModulePageState extends State<ModulePage> {
                       'Python', textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -108,7 +109,7 @@ class _ModulePageState extends State<ModulePage> {
                       'Dart', textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -123,10 +124,10 @@ class _ModulePageState extends State<ModulePage> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const ModulePage2()));},
-                    color: Colors.yellowAccent,
+                    onPressed: () {},
+                    color: Colors.grey,
                     child: const Text(
-                      'ENROLL',
+                      'ENROLLED',
                       style: TextStyle(fontSize: 20, color: Colors.black,),
                     ),
                   ),

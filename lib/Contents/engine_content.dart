@@ -1,37 +1,33 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-//import 'package:page_transition/page_transition.dart';
-//import 'package:project_test/Models/content_model.dart';
-//import 'content_page2.dart';
 
-class ContentPage extends StatefulWidget {
-  const ContentPage({Key? key}) : super(key: key);
+class EContentPage extends StatefulWidget {
+  const EContentPage({Key? key}) : super(key: key);
   @override
-  ContentPageState createState() => ContentPageState();
+  EContentPageState createState() => EContentPageState();
 }
 
-class ContentPageState extends State<ContentPage> {
+class EContentPageState extends State<EContentPage> {
   final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.greenAccent,
-      appBar: AppBar(title: const Text("C++", style: TextStyle(color: Colors.black,),),
+      appBar: AppBar(title: const Text("ENGINEERING", style: TextStyle(color: Colors.black,),),
         backgroundColor: Colors.yellowAccent,centerTitle: true,),
       body: body(),
-
     );
   }
 
   Widget body() {
     var stream = FirebaseFirestore.instance.collection('course')
-        .doc('ICT')
+        .doc('ENGINEER')
         .collection('module')
-        .doc('C++')
+        .doc('Electronic')
         .collection('content')
         .snapshots();
-    
+
     //var onTap = ContentModel();
 
     return StreamBuilder(

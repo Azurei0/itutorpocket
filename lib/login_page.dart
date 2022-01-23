@@ -10,7 +10,7 @@ import 'package:project_test/ContentProvider/cp_profilepage.dart';
 import 'ContentProvider/cp_courselist.dart';
 import 'package:project_test/ContentProvider/cp_courselist.dart';
 import 'package:project_test/ContentProvider/cp_testPage.dart';
-import 'bottom_navigation.dart';
+import 'Bottom_Navigation/bottom_navigation.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
