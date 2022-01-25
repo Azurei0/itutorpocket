@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_test/Bottom_Navigation/bottom_navigation2.dart';
+import 'package:project_test/Contents/module_quiz.dart';
 import 'quiz_question.dart';
 
 class QuizResult extends StatelessWidget {
@@ -70,7 +70,7 @@ class QuizResult extends StatelessWidget {
                   style: ButtonStyle(
                       backgroundColor:
                       MaterialStateProperty.all(Colors.white)),
-                  onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const BotNavigation2()));},
+                  onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));},
                 )
               ],
             )));

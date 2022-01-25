@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'module_page.dart';
 
+import 'package:flutter/material.dart';
+import 'package:project_test/Contents/module_quiz.dart';
 
 class CoursePage extends StatefulWidget {
   const CoursePage({Key? key}) : super(key: key);
@@ -10,6 +10,9 @@ class CoursePage extends StatefulWidget {
   }
 
 class _CoursePageState extends State<CoursePage> {
+
+  bool isButtonEnable = true;
+  bool clicked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,10 @@ class _CoursePageState extends State<CoursePage> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const ModulePage()));},
+                    onPressed: () {
+                      if(isButtonEnable == false) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));}
+                    },
                     color: Colors.yellow,
                     child: const Text(
                       'Programming',
@@ -47,7 +53,6 @@ class _CoursePageState extends State<CoursePage> {
                 ),
 
                 const SizedBox(height: 15,),
-
                 Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   width: double.infinity,
@@ -69,7 +74,6 @@ class _CoursePageState extends State<CoursePage> {
                 ),
 
                 const SizedBox(height: 15,),
-
                 Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   width: double.infinity,
@@ -91,7 +95,6 @@ class _CoursePageState extends State<CoursePage> {
                 ),
 
                 const SizedBox(height: 15,),
-
                 Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   width: double.infinity,
@@ -113,7 +116,6 @@ class _CoursePageState extends State<CoursePage> {
                 ),
 
                 const SizedBox(height: 15,),
-
                 Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   width: double.infinity,
@@ -134,6 +136,31 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                 ),
 
+                const SizedBox(height: 190,),
+                ElevatedButton(
+                  child: SizedBox(
+                    width: 200,
+                    child: Text(
+                      'ENROLL',
+                      textAlign: TextAlign.center,
+                      style: clicked ? const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black) : const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.yellowAccent,
+                    onSurface: Colors.grey,
+                  ),
+                  onPressed: isButtonEnable ? (){setState(() {
+                    isButtonEnable = false;
+                    clicked = !clicked;
+                  });} : null,
+                ),
               ],
             ),
           ),

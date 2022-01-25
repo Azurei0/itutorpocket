@@ -13,7 +13,7 @@ class _ModuleQuizState extends State<ModuleQuiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.greenAccent,
-      appBar: AppBar(title: const Text("C++", style: TextStyle(color: Colors.black,),),
+      appBar: AppBar(title: const Text("PROGRAMMING", style: TextStyle(color: Colors.black,),),
         backgroundColor: Colors.yellowAccent,centerTitle: true,),
 
         body: Center(

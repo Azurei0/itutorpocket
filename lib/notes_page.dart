@@ -30,7 +30,7 @@ class _NotesPageState extends State<NotesPage> {
             const Center(
               child: Text("Add Notes"),
             ),
-            floatingActionButton: FloatingActionButton(backgroundColor: Colors.green,onPressed: (){
+            floatingActionButton: FloatingActionButton(backgroundColor: Colors.greenAccent,onPressed: (){
               _settingModalBottomSheet(context);
             },
             child: const Icon(Icons.create),

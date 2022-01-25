@@ -31,7 +31,7 @@ class _Navigation extends State<Navigation> {
   [
     const HomePage(),
     const NotesPage(),
-    const BookmarkPage(),
+    const BookmarkPage(bookmarkItems: [],),
     const ProfilePage(),
   ];
 

@@ -18,7 +18,7 @@ class _CPCourseMgmtState extends State<CPCourseMgmt> {
         title: const Text('iTutorPocket'),
         centerTitle: true,
       ),
-      body: Align(
+      body: const Align(
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: CPCourseMgmt(),

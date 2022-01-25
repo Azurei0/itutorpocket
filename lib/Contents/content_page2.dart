@@ -1,9 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:project_test/Models/database.dart';
+
 
 class ContentPage2 extends StatefulWidget {
-  const ContentPage2({Key? key}) : super(key: key);
+  const ContentPage2({Key? key, required this.title, required this.dBContent}) : super(key: key);
+  final Map title;
+  final Database dBContent;
 
   @override
   _ContentPage2State createState() => _ContentPage2State();
@@ -11,69 +14,83 @@ class ContentPage2 extends StatefulWidget {
 
 class _ContentPage2State extends State<ContentPage2> {
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.greenAccent,
-      appBar: AppBar(title: const Text("C++", style: TextStyle(color: Colors.black,),),
-        backgroundColor: Colors.yellowAccent,centerTitle: true,),
-      body: body(),
-    );
-  }
+    String? title;
+    String? module;
+    String? desc;
+    String? url;
 
-  Widget body() {
-    return StreamBuilder(
-      stream: FirebaseFirestore.instance.collection('course')
-          .doc('ICT')
-          .collection('module')
-          .doc('C++')
-          .collection('CTSZO4YSA2Szti8zSCQXL3Q2Gnn1')
-          .snapshots(),
+    @override
+    void initState() {
+    super.initState();
+    title = widget.title['title'];
+    module = widget.title['module'];
+    desc = widget.title['description'];
+    url = widget.title['url'];
+    }
 
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-        switch(snapshot.connectionState) {
-          case ConnectionState.none:
-          case ConnectionState.waiting:
-            return center("Please wait...");
+    @override
+    Widget build(BuildContext context) {
 
-          default:
-            if(snapshot.hasData) {
-              print(snapshot.data!.docs.length);
-              if (snapshot.data!.docs.isEmpty) {
-                return center('No Content Found');
-              }else{
-                return ListView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (BuildContext context, int index){
-                      String title = snapshot.data!.docs[index]['title'];
-                      String desc = snapshot.data!.docs[index]['description'];
-                      String url = snapshot.data!.docs[index]['url'];
+      return Scaffold(
+        backgroundColor: Colors.greenAccent,
+        appBar: AppBar(title: const Text("PROGRAMMING", style: TextStyle(color: Colors.black,),),
+          backgroundColor: Colors.yellowAccent,centerTitle: true,),
+        body: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+                  children: [
+                    const SizedBox(height: 20,),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      child:Text('$title',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),),),
+                    const SizedBox(height: 10,),
+                    Container(
+                      child: Text('$module',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),),
+                    ),
+                    const SizedBox(height: 50,),
 
-                      return Text('$title \n$desc \n$url');
-                    });
-              }
-            }else{
-              return center('Getting Error');
-            }
-        }
-      },
+                    Container(
+                      width: 500,
+                      height: 200,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 30,),
+                          Text('$desc',
+                            textAlign: TextAlign.right,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                            ),),
+                          const SizedBox(height: 20,),
+                          Text('$url',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
 
-    );
-  }
+                    //const SizedBox(height: 20,),
+                    //FavoriteButton(isFavorite: false, valueChanged: (_isFavorite) {print(ContentPage2);},),
 
-  Widget center(String text) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height,
-      width: size.width,
-      alignment: Alignment.center,
-      child: Text (
-        text, style: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.w600,
-        color: Colors.black.withOpacity(0.56),
-      ),
-      ),
-    );
-  }
+              ],)
+        ),
+      );
+    }
+
 }
+
+
+

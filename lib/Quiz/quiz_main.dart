@@ -84,18 +84,9 @@ class _QuizMain extends State<QuizMain> {
   Widget build(BuildContext context) {
     return Scaffold(
           backgroundColor: Colors.greenAccent,
-          appBar: AppBar(
-            title: const Align(
-              alignment: Alignment.center,
-              child: Text(
-                "QUIZ",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            backgroundColor: Colors.yellowAccent,
-          ),
+          appBar: AppBar(title: const Text("QUIZ", style: TextStyle(color: Colors.black,),),
+            backgroundColor: Colors.yellowAccent,centerTitle: true,),
+
           body: Align(
               alignment: Alignment.center,
               child: (_indexQuestion <= 4 && _indexQuestion >= 0)

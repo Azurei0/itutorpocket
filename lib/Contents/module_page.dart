@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:project_test/Contents/module_page2.dart';
+import 'package:project_test/Contents/module_quiz.dart';
+//import 'package:page_transition/page_transition.dart';
 
 
 class ModulePage extends StatefulWidget {
@@ -12,8 +12,12 @@ class ModulePage extends StatefulWidget {
 
 class _ModulePageState extends State<ModulePage> {
 
+  bool isButtonEnable = true;
+  bool clicked = true;
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.greenAccent,
       appBar: AppBar(title: const Text("PROGRAMMING", style: TextStyle(color: Colors.black,),),
@@ -36,13 +40,16 @@ class _ModulePageState extends State<ModulePage> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if(isButtonEnable == false) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));}
+                      },
                     color: Colors.white,
                     child: const Text(
                       'C++',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -64,7 +71,7 @@ class _ModulePageState extends State<ModulePage> {
                       'Java',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -86,7 +93,7 @@ class _ModulePageState extends State<ModulePage> {
                       'Python', textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -108,28 +115,36 @@ class _ModulePageState extends State<ModulePage> {
                       'Dart', textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                     ),
                   ),
                 ),
 
                 const SizedBox(height: 190,),
-                Container(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  width: 230,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: MaterialButton(
-                    onPressed: () {Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const ModulePage2()));},
-                    color: Colors.yellowAccent,
-                    child: const Text(
+                ElevatedButton(
+                  child: SizedBox(
+                    width: 200,
+                    child: Text(
                       'ENROLL',
-                      style: TextStyle(fontSize: 20, color: Colors.black,),
+                      textAlign: TextAlign.center,
+                      style: clicked ? const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black) : const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey),
                     ),
                   ),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.yellowAccent,
+                      onSurface: Colors.grey,
+                  ),
+                  onPressed: isButtonEnable ? (){setState(() {
+                    isButtonEnable = false;
+                    clicked = !clicked;
+                  });} : null,
                 ),
               ],
             ),
@@ -138,4 +153,10 @@ class _ModulePageState extends State<ModulePage> {
       ),
     );
   }
+
+  //void ButtonClicked() async {
+    //setState(() {
+     //isButtonEnable = false;
+      //Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));});
+
 }

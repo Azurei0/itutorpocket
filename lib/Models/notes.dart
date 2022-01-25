@@ -16,7 +16,7 @@ List<Color> noteColor = [
   // Colors.pink,
   // Colors.blue,
   // Colors.green,
-  Colors.blueGrey,
+  Colors.yellowAccent,
 ];
 
 List<Color> noteMarginColor = [
