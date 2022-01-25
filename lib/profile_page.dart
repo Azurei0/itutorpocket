@@ -44,30 +44,40 @@ class _ProfilePageState extends State<ProfilePage> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 30,),
+              const SizedBox(height: 20,),
               Center(
                 child: Image.asset("assets/images/profile_icon.png",height: 150),
               ),
+              //const SizedBox(height: 50,),
               Text("${loggedIn.username}", style: const TextStyle(
                     fontSize: 20, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 20,),
-              const Divider(
-                color: Colors.black87,
-                height: 35,
-                thickness: 1.5,
-              ),
               Container(
-                height: 70,
-                width: 1000,
-                color: Colors.yellowAccent,
-                padding: const EdgeInsets.all(20),
-                  child: Text("Email: ${loggedIn.email}", style: const TextStyle(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                width: double.infinity,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: MaterialButton(
+                  onPressed: () {},
+                  color: Colors.yellowAccent,
+                  child: const Text(
+                    'CERTIFICATE',
+                    style: TextStyle(fontSize: 20, color: Colors.black,),
+                  ),
+                ),
+              ),
+
+              Container(
+                padding: const EdgeInsets.all(20), //color: Colors.greenAccent,
+                  child: Text("${loggedIn.email}", style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.w500),
                   ),
                 ),
 
-              const SizedBox(height: 300,),
+              const SizedBox(height: 190,),
               Container(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 width: 250,

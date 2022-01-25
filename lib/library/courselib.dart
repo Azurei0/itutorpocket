@@ -1,0 +1,19 @@
+library courselib;
+
+var courseList = [
+  'LAW',
+  'ARCHITECTURE',
+  'EDUCATION',
+  'ECONOMICS',
+  'ICT',
+  'ENGINEERING',
+  'ISLAMIC REVEALED KNOWLEDGE',
+  'HUMAN SCIENCES',
+  'ALLIED HEALTH & SCIENCES',
+  'MEDICINE',
+  'NURSING',
+  'SCIENCE',
+  'PHARMACY',
+  'DENTISTRY',
+  'LANGUAGES AND MANAGEMENT',
+];
