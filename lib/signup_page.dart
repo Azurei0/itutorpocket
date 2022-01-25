@@ -4,8 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_test/ContentProvider/cp_homepage.dart';
 //import 'package:project_test/ContentProvider/cp_addcontentpage.dart';
-import 'package:project_test/ContentProvider/cp_showcontent.dart';
+import 'package:project_test/ContentProvider/cp_minicourselist.dart';
 import 'package:project_test/Models/user_model.dart';
 import 'package:project_test/Models/contentprovider_model.dart';
 import 'Bottom_Navigation/bottom_navigation.dart';
@@ -248,7 +249,7 @@ class _SignupPageState extends State<SignupPage> {
     Navigator.pushAndRemoveUntil(
         (context),
         MaterialPageRoute(builder: (context) => const BotNavigation()),
-            (route) => false);
+        (route) => false);
   }
 
   postDetailsToFirestoreCP() async {
@@ -272,7 +273,7 @@ class _SignupPageState extends State<SignupPage> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => const CPShowModuleContent()),
-            (route) => false);
+        MaterialPageRoute(builder: (context) => const CPHomePage()),
+        (route) => false);
   }
 }

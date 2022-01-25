@@ -32,9 +32,13 @@ class _CPEditContentState extends State<CPEditContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.tealAccent.shade400,
+      backgroundColor: Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(
+        toolbarHeight: 80,
+        backgroundColor: Color.fromARGB(255, 245, 200, 64),
         title: Text('Edit Content'),
+        titleTextStyle: const TextStyle(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w600),
         actions: [
           IconButton(
               onPressed: () => {
@@ -45,7 +49,11 @@ class _CPEditContentState extends State<CPEditContent> {
                     ),
                     Navigator.pop(context, true)
                   },
-              icon: Icon(Icons.delete)),
+              icon: Icon(
+                Icons.delete,
+                color: Colors.black87,
+                size: 30,
+              )),
         ],
       ),
       body: SingleChildScrollView(
@@ -111,7 +119,7 @@ class _CPEditContentState extends State<CPEditContent> {
               onPressed: () => {Navigator.of(context).pop()},
             ),
             MaterialButton(
-              color: Colors.yellow.shade400,
+              color: Color.fromARGB(255, 245, 200, 64),
               padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
               child: const Text('Save Changes'),

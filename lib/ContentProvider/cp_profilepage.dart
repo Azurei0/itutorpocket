@@ -16,11 +16,11 @@ class _CPProfilePageState extends State<CPProfilePage> {
   User? user = FirebaseAuth.instance.currentUser;
   CPModel loggedIn = CPModel();
 
-  editProfile() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const CPAddModuleContent(),
-    ));
-  }
+  // editProfile() {
+  //   Navigator.of(context).push(MaterialPageRoute(
+  //     builder: (context) => const CPAddModuleContent(),
+  //   ));
+  // }
 
   @override
   void initState() {
@@ -38,9 +38,12 @@ class _CPProfilePageState extends State<CPProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 245, 200, 64),
         title: const Text("PROFILE"),
+        titleTextStyle: const TextStyle(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w600),
         centerTitle: true,
       ),
       body: Center(
@@ -55,26 +58,28 @@ class _CPProfilePageState extends State<CPProfilePage> {
                 width: MediaQuery.of(context).size.width,
                 child: Card(
                   margin: const EdgeInsets.all(8),
-                  color: Colors.greenAccent.shade400,
+                  color: Color.fromARGB(255, 130, 248, 210),
                   child: Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: Column(
                       children: [
-                        Row(
-                            //width: MediaQuery.of(context).size.width,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                onPressed: editProfile,
-                                icon: const Icon(
-                                  Icons.settings_sharp,
-                                  size: 30.0,
-                                ),
-                              ),
-                            ]),
-                        Image.asset(
-                          "./assets/images/profile_icon.png",
-                          height: 150,
+                        // Row(
+                        //     mainAxisAlignment: MainAxisAlignment.end,
+                        //     children: [
+                        //       IconButton(
+                        //         onPressed: editProfile,
+                        //         icon: const Icon(
+                        //           Icons.settings_sharp,
+                        //           size: 30.0,
+                        //         ),
+                        //       ),
+                        //     ]),
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundColor: Colors.white,
+                          child: Image.asset(
+                            "./assets/images/profile_icon.png",
+                          ),
                         ),
                         Text(
                           "${loggedIn.username}",
@@ -94,7 +99,7 @@ class _CPProfilePageState extends State<CPProfilePage> {
                 thickness: 1.5,
               ),
               Card(
-                color: Colors.greenAccent.shade400,
+                color: Color.fromARGB(255, 130, 248, 210),
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -139,36 +144,36 @@ class _CPProfilePageState extends State<CPProfilePage> {
                   ),
                 ),
               ),
-              Container(
-                clipBehavior: Clip.none,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2.5,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: MaterialButton(
-                    minWidth: 250,
-                    height: 45,
-                    onPressed: () {
-                      logout(context);
-                    },
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    color: Colors.grey,
-                    child: const Text(
-                      "SIGN OUT",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
       ),
+      floatingActionButton: Container(
+        height: 50,
+        width: 200,
+        child: FloatingActionButton(
+          backgroundColor: Color.fromARGB(255, 245, 200, 64),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Sign Out',
+                style: TextStyle(color: Colors.black87, fontSize: 18),
+              ),
+              SizedBox(width: 15),
+              Icon(
+                Icons.logout,
+                color: Colors.black87,
+              ),
+            ],
+          ),
+          onPressed: () => logout(context),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

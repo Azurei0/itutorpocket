@@ -2,16 +2,32 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CPModel {
-  String? course;
   String? uid;
   String? email;
   String? username;
   String? userType;
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  var cpUser = FirebaseAuth.instance.currentUser;
+  initialize() {}
+
+  void updateUsername({
+    String? username,
+  }) async {
+    try {
+      await firestore.collection('user').doc(cpUser!.email).update(
+        {'username': username},
+      );
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+  }
 
   CPModel({this.uid, this.email, this.username, this.userType});
 

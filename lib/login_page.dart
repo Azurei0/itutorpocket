@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_test/ContentProvider/cp_homepage.dart';
 import 'package:project_test/ContentProvider/cp_profilepage.dart';
 //import 'package:project_test/ContentProvider/cp_showcontent.dart';
 import 'ContentProvider/cp_courselist.dart';
@@ -182,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                 var userType = value.data()?["userType"];
                 if (userType == "contentProvider") {
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => CPCourseList()));
+                      MaterialPageRoute(builder: (context) => CPHomePage()));
                 } else if (userType == "student") {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => BotNavigation()));

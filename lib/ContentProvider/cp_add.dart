@@ -63,16 +63,27 @@ class _CPAddContentState extends State<CPAddContent> {
       },
       borderRadius: BorderRadius.circular(25),
       autofocus: true,
-      icon: const Icon(Icons.arrow_drop_down_circle),
+      icon: const Icon(
+        Icons.arrow_drop_down_circle,
+      ),
       isExpanded: true,
     );
 
     return Scaffold(
-      backgroundColor: Colors.tealAccent.shade400,
+      backgroundColor: Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(
+        toolbarHeight: 80,
+        backgroundColor: Color.fromARGB(255, 245, 200, 64),
         title: const Text('Add Content'),
+        titleTextStyle: const TextStyle(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w600),
         actions: [
-          IconButton(onPressed: () => {}, icon: Icon(Icons.delete)),
+          IconButton(
+              onPressed: () => {},
+              icon: Icon(
+                Icons.delete,
+                color: Colors.black87,
+              )),
         ],
       ),
       body: SingleChildScrollView(
@@ -101,7 +112,8 @@ class _CPAddContentState extends State<CPAddContent> {
                   focusColor: Colors.blue,
                   labelStyle: TextStyle(color: Colors.black87),
                   labelText: 'Module',
-                  fillColor: Colors.amber,
+                  fillColor: Colors.white,
+                  filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
                     borderSide: BorderSide(
@@ -151,7 +163,7 @@ class _CPAddContentState extends State<CPAddContent> {
               onPressed: () => {Navigator.of(context).pop()},
             ),
             MaterialButton(
-              color: Colors.yellow.shade400,
+              color: Color.fromARGB(255, 245, 200, 64),
               padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
               child: Text('Add Content'),
@@ -179,6 +191,7 @@ class _CPAddContentState extends State<CPAddContent> {
       focusColor: Colors.blue,
       labelStyle: TextStyle(color: Colors.black87),
       labelText: labelText,
+      filled: true,
       fillColor: Colors.white,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(25.0),
