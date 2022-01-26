@@ -17,7 +17,7 @@ class _CoursePageState extends State<CoursePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 42, 147, 142),
         //appBar: AppBar(title: const Text("ICT", style: TextStyle(color: Colors.black,),), backgroundColor: Colors.yellowAccent, centerTitle: true,),
 
       body: Padding(
@@ -41,7 +41,7 @@ class _CoursePageState extends State<CoursePage> {
                       if(isButtonEnable == false) {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>const ModuleQuiz()));}
                     },
-                    color: Colors.yellow,
+                    color: Colors.white,
                     child: const Text(
                       'Programming',
                       style: TextStyle(
@@ -62,7 +62,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Colors.white,
                     child: const Text(
                       'UI Design',
                       style: TextStyle(
@@ -83,7 +83,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Colors.white,
                     child: const Text(
                       'Digital Media Design', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -104,7 +104,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Colors.white,
                     child: const Text(
                       'Enterprise Management Technology', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -125,7 +125,7 @@ class _CoursePageState extends State<CoursePage> {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Colors.white,
                     child: const Text(
                       'Information Assurance and Security', textAlign: TextAlign.center,
                       style: TextStyle(
@@ -153,7 +153,7 @@ class _CoursePageState extends State<CoursePage> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.yellowAccent,
+                    primary: const Color.fromARGB(255, 245, 200, 64),
                     onSurface: Colors.grey,
                   ),
                   onPressed: isButtonEnable ? (){setState(() {

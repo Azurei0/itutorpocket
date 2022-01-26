@@ -36,9 +36,9 @@ class _EContentPageState extends State<EContentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(title: const Text("ENGINEERING", style: TextStyle(color: Colors.black,),),
-        backgroundColor: Colors.yellowAccent,centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 245, 200, 64),centerTitle: true,
       ),
       body: body(),
     );

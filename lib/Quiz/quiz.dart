@@ -8,7 +8,7 @@ class Quiz extends StatelessWidget {
   final Function answerQuestion;
 
   const Quiz(
-      {required this.data,
+        {required this.data,
         required this.answerQuestion,
         required this.indexQuestion,
         Key? key})

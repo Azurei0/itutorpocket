@@ -45,6 +45,7 @@ class QuizResult extends StatelessWidget {
                       'Try again',
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 20,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
@@ -62,6 +63,7 @@ class QuizResult extends StatelessWidget {
                       'Home',
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 20,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),

@@ -45,7 +45,8 @@ class _Navigation extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ICT", style: TextStyle(color: Colors.black,),), backgroundColor: Colors.greenAccent,
+        title: const Text("ICT", style: TextStyle(color: Colors.black,),),
+        backgroundColor: const Color.fromARGB(255, 245, 200, 64),
         centerTitle: true,
       ),
       body: _children[_selectedIndex],
@@ -55,24 +56,24 @@ class _Navigation extends State<Navigation> {
 
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: Colors.black),
             label: 'Home',
-            backgroundColor: Colors.greenAccent,
+            backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.note),
+            icon: Icon(Icons.note, color: Colors.black),
             label: 'Notes',
-            backgroundColor: Colors.greenAccent,
+            backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
+            icon: Icon(Icons.bookmark, color: Colors.black),
             label: 'Bookmark',
-            backgroundColor: Colors.greenAccent,
+            backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Icons.account_circle, color: Colors.black),
             label: 'Profile',
-            backgroundColor: Colors.greenAccent,
+            backgroundColor: Colors.white,
           ),
 
         ],

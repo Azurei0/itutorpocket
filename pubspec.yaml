@@ -45,6 +45,7 @@ dependencies:
   url_launcher: ^6.0.18
   favorite_button: ^0.0.4
   badges: ^2.0.2
+  webview_flutter: ^3.0.0
 
 dev_dependencies:
   flutter_test:

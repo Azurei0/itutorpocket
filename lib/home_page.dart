@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:page_transition/page_transition.dart';
-//import 'package:project_test/Contents/course_page.dart';
 import 'package:project_test/Bottom_Navigation/bottom_navigation2.dart';
 import 'package:project_test/Contents/engine_content.dart';
 
@@ -10,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 42, 147, 142),
       body: Padding(
         padding: const EdgeInsets.all(30),
         child: Center(
@@ -29,7 +27,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const BotNavigation2()));},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'ICT',
                       style: TextStyle(
@@ -51,7 +49,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'LAW',
                       style: TextStyle(
@@ -73,7 +71,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const EContentPage()));},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'ENGINEERING',
                       style: TextStyle(
@@ -95,7 +93,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'ECONOMICS',
                       style: TextStyle(
@@ -117,7 +115,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'IRKHS',
                       style: TextStyle(
@@ -139,7 +137,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: MaterialButton(
                     onPressed: () {},
-                    color: Colors.yellow,
+                    color: Color.fromARGB(255, 245, 200, 64),
                     child: const Text(
                       'ARCHITECTURE',
                       style: TextStyle(
