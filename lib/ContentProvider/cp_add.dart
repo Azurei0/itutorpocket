@@ -173,7 +173,7 @@ class _CPAddContentState extends State<CPAddContent> {
                   module: moduleController.text.toString().toUpperCase(),
                   title: titleController.text,
                   description: descController.text,
-                  url: descController.text,
+                  url: urlController.text,
                   authoruid: cpUser!.uid,
                   authorname: cpUser!.displayName,
                 );

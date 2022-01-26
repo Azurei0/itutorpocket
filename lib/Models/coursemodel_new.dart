@@ -86,12 +86,12 @@ class Database {
     String? url,
   }) async {
     try {
-      await firestore.collection(course!).doc(id)
-          // .collection('module')
-          // .doc(module)
-          // .collection('content')
-          // .doc(id)
-          .update({'title': title, 'description': description, 'url': url});
+      await firestore.collection('coursenew').doc(id).update({
+        'course': course,
+        'title': title,
+        'description': description,
+        'url': url,
+      });
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
@@ -105,14 +105,7 @@ class Database {
     String? module,
   }) async {
     try {
-      await firestore
-          .collection(course!)
-          .doc(id)
-          // .collection('module')
-          // .doc(module)
-          // .collection('content')
-          // .doc(id)
-          .delete();
+      await firestore.collection('coursenew').doc(id).delete();
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
