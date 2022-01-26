@@ -9,8 +9,6 @@ import 'package:project_test/Contents/content_page2.dart';
 import 'package:project_test/Models/database.dart';
 import 'package:project_test/library/courselib.dart';
 import 'dart:async';
-
-import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:project_test/bookmark_page.dart';
 
 class ContentPage extends StatefulWidget {
@@ -24,7 +22,6 @@ class _ContentPageState extends State<ContentPage> {
   //List<String> newTitle = nouns.take(5).toList();
   List<String> bookmarked = <String>[];
   List bookmarkList = [];
-  late SharedPreferences sharedPreferences;
 
   late Database dBContent;
   List<Database> userCourse = <Database>[];
@@ -105,7 +102,6 @@ class _ContentPageState extends State<ContentPage> {
               onLongPress: () async {
                 if (newTitle) {
                   bookmarked.remove(word);
-                  print(docs[index]);
                 } else {
                   bookmarked.add(word);
                 }

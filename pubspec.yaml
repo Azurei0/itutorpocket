@@ -46,7 +46,6 @@ dependencies:
   favorite_button: ^0.0.4
   badges: ^2.0.2
   webview_flutter: ^3.0.0
-  shared_preferences: ^2.0.12
 
 dev_dependencies:
   flutter_test:

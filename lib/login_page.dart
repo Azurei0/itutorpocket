@@ -6,11 +6,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project_test/ContentProvider/cp_homepage.dart';
-import 'package:project_test/ContentProvider/cp_profilepage.dart';
-//import 'package:project_test/ContentProvider/cp_showcontent.dart';
-import 'ContentProvider/cp_courselist.dart';
-import 'package:project_test/ContentProvider/cp_courselist.dart';
-import 'package:project_test/ContentProvider/cp_testPage.dart';
 import 'Bottom_Navigation/bottom_navigation.dart';
 import 'signup_page.dart';
 
@@ -94,7 +89,6 @@ class _LoginPageState extends State<LoginPage> {
                 fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ));
-
     return Scaffold(
       backgroundColor: Colors.greenAccent,
       body: Center(
