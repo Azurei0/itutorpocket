@@ -12,14 +12,14 @@ class ModuleQuiz extends StatefulWidget {
 class _ModuleQuizState extends State<ModuleQuiz> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.greenAccent,
+    return Scaffold(backgroundColor:const Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(title: const Text("PROGRAMMING", style: TextStyle(color: Colors.black,),),
-        backgroundColor: Colors.yellowAccent,centerTitle: true,),
+        backgroundColor: const Color.fromARGB(255, 245, 200, 64) ,centerTitle: true,),
 
         body: Center(
           child: SingleChildScrollView(
             child: Container(
-              color: Colors.greenAccent,
+              color: Color.fromARGB(255, 42, 147, 142),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                   child: Column(

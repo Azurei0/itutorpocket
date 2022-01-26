@@ -7,6 +7,10 @@ class BookmarkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: const Text('BOOKMARK', style: TextStyle(color: Colors.black,),), centerTitle: true,),
         backgroundColor: Colors.white,
 
         body: ListView.separated(

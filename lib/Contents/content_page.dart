@@ -37,9 +37,9 @@ class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
-      appBar: AppBar(title: const Text("PROGRAMMING", style: TextStyle(color: Colors.black,),),
-        backgroundColor: Colors.yellowAccent,centerTitle: true,
+      backgroundColor: const Color.fromARGB(255, 42, 147, 142),
+      appBar: AppBar(title: const Text("MODULES", style: TextStyle(color: Colors.black,),),
+        backgroundColor: const Color.fromARGB(255, 245, 200, 64),centerTitle: true,
 
         //actions: <Widget>[
           //Badge(

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_test/Models/notes.dart';
 
@@ -24,16 +25,16 @@ class _NotesPageState extends State<NotesPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
           elevation: 0,
-          title: notesHeader(),
+          title: notesHeader(), centerTitle: true,
       ),
       body: notesHeading.isNotEmpty ? buildNotes():
             const Center(
               child: Text("Add Notes"),
             ),
-            floatingActionButton: FloatingActionButton(backgroundColor: Colors.greenAccent,onPressed: (){
+            floatingActionButton: FloatingActionButton(backgroundColor: const Color.fromARGB(255, 42, 147, 142),onPressed: (){
               _settingModalBottomSheet(context);
             },
-            child: const Icon(Icons.create),
+            child: const Icon(Icons.add, color: Colors.black,),
             ),
     );
   }
@@ -208,7 +209,7 @@ void _settingModalBottomSheet(context)
                         Text("SAVE",
                         style: TextStyle(
                           fontSize:20,
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 42, 147, 142),
                           fontWeight: FontWeight.w500,
                         ),
                         ),
@@ -222,6 +223,8 @@ void _settingModalBottomSheet(context)
                 color: Colors.black,
                 thickness: 2.5,
               ),
+
+              const SizedBox(height: 20,),
 
               TextFormField(
                 maxLength: notesHeaderMaxLength,
@@ -296,9 +299,10 @@ Widget notesHeader() {
   return Padding(
       padding: const EdgeInsets.only(top: 20, left: 2.5, right: 2.5),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        //crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          Text("NOTES", style: TextStyle(color: Colors.black,
+          Text("NOTES",
+              style: TextStyle(color: Colors.black,
               fontSize: 30,
               fontWeight: FontWeight.w500),
           ),
