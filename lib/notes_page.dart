@@ -27,11 +27,12 @@ class _NotesPageState extends State<NotesPage> {
           elevation: 0,
           title: notesHeader(), centerTitle: true,
       ),
+      backgroundColor: const Color.fromARGB(255, 42, 147, 142),
       body: notesHeading.isNotEmpty ? buildNotes():
             const Center(
               child: Text("Add Notes"),
             ),
-            floatingActionButton: FloatingActionButton(backgroundColor: const Color.fromARGB(255, 42, 147, 142),onPressed: (){
+            floatingActionButton: FloatingActionButton(backgroundColor: const Color.fromARGB(255, 245, 200, 64),onPressed: (){
               _settingModalBottomSheet(context);
             },
             child: const Icon(Icons.add, color: Colors.black,),
