@@ -22,8 +22,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  @override
-
   //form key
   final _formKey = GlobalKey<FormState>();
 
