@@ -21,7 +21,7 @@ class _ContentPageState extends State<ContentPage> {
   initialize(){
     dBContent = Database();
     dBContent.initialize();
-    dBContent.dBContent().then((value) => {
+    dBContent.dBContent("ICT").then((value) => {
       setState((){
         docs = value;
       })

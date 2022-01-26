@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:project_test/Contents/content_url.dart';
 import 'package:project_test/Models/database.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 
 class ContentPage2 extends StatefulWidget {
@@ -17,7 +20,7 @@ class _ContentPage2State extends State<ContentPage2> {
     String? title;
     String? module;
     String? desc;
-    String? url;
+    late String url;
 
     @override
     void initState() {
@@ -25,7 +28,9 @@ class _ContentPage2State extends State<ContentPage2> {
     title = widget.title['title'];
     module = widget.title['module'];
     desc = widget.title['description'];
-    url = widget.title['url'];
+    url = widget.title['url'].toString();
+
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
     }
 
     @override
@@ -74,20 +79,33 @@ class _ContentPage2State extends State<ContentPage2> {
                           const SizedBox(height: 20,),
                           Text('$url',
                             style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: Colors.black,
                             ),
                           ),
+                          const SizedBox(height: 10),
+                          MaterialButton(
+                              color: const Color.fromARGB(255, 245, 200, 64),
+                              child: const Text('Go to URL',
+                                style: TextStyle(
+                                  color: Colors.black
+                                ) ,),
+                              onPressed: () => {
+                                _handleURLButtonPress(url)
+                              }
+                              ),
                         ],
                       ),
                     ),
 
-                    //const SizedBox(height: 20,),
-                    //FavoriteButton(isFavorite: false, valueChanged: (_isFavorite) {print(ContentPage2);},),
-
               ],)
         ),
       );
+    }
+
+    void _handleURLButtonPress(String url) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => WebViewContainer(url)));
     }
 
 }

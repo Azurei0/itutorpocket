@@ -6,11 +6,13 @@ class Database {
   initialize() {
     firestore = FirebaseFirestore.instance;
   }
-  Future<List> dBContent() async {
+  Future<List> dBContent(String courseName) async {
     QuerySnapshot querySnapshot;
     List docs=[];
     try{
-      querySnapshot = await firestore.collection('ICT').get();
+      querySnapshot = await firestore.collection('coursenew')
+          .where('course', isEqualTo: courseName)
+          .get();
       if(querySnapshot.docs.isNotEmpty) {
         for(var doc in querySnapshot.docs.toList()) {
           Map cont = {
@@ -19,6 +21,7 @@ class Database {
             'module':doc['module'],
             'description':doc['description'],
             'url':doc['url'],
+            'course':doc['course'],
           };
           docs.add(cont);
         }
