@@ -16,7 +16,7 @@ List<Color> noteColor = [
   // Colors.pink,
   // Colors.blue,
   // Colors.green,
-  Colors.yellowAccent,
+  const Color.fromARGB(255, 245, 200, 64),
 ];
 
 List<Color> noteMarginColor = [
