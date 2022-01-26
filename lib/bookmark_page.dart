@@ -7,20 +7,35 @@ class BookmarkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            title: const Text('BOOKMARK', style: TextStyle(color: Colors.black,),), centerTitle: true,),
-        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: const Text(
+            'BOOKMARK', style: TextStyle(color: Colors.black,),),
+          centerTitle: true,),
+        backgroundColor: const Color.fromARGB(255, 42, 147, 142),
 
-        body: ListView.separated(
-            itemCount: bookmarkItems.length,
-            separatorBuilder: (BuildContext context, int index) => const Divider(),
-            itemBuilder: (BuildContext context, int index) =>
-                ListTile(
-                  title: Text(bookmarkItems[index]),
-                )
-
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'NO BOOKMARK CONTENT', textAlign: TextAlign.center,
+                    style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black.withOpacity(0.56),
+                  ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         )
     );
   }
