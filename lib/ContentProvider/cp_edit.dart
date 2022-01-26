@@ -126,10 +126,11 @@ class _CPEditContentState extends State<CPEditContent> {
               onPressed: () {
                 widget.db.update(widget.content['id'],
                     course: widget.content['course'],
-                    module: moduleController.text,
+                    module: widget.content['module'],
                     title: titleController.text,
                     description: descController.text,
                     url: urlController.text);
+                print(widget.content['id']);
                 Navigator.pop(context, true);
               },
             )
