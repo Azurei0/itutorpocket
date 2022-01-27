@@ -45,7 +45,7 @@ class _Navigation extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ICT", style: TextStyle(color: Colors.black,),),
+        title: const Text("ITUTORPOCKET", style: TextStyle(color: Colors.black,),),
         backgroundColor: const Color.fromARGB(255, 245, 200, 64),
         centerTitle: true,
       ),
