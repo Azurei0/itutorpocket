@@ -2,9 +2,9 @@
     package="com.example.project_test">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
    <application
-       android:name="androidx.multidex.MultiDexApplication" >
-        android:label="project_test"
-        android:icon="@mipmap/launcher_icon">
+       android:name="androidx.multidex.MultiDexApplication"
+        android:label="iTutorPocket"
+        android:icon="@mipmap/ic_launcher" >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
