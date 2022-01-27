@@ -20,7 +20,6 @@ class _CPEditContentState extends State<CPEditContent> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     moduleController.text = widget.content['module'];
     titleController.text = widget.content['title'];
@@ -32,11 +31,11 @@ class _CPEditContentState extends State<CPEditContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 42, 147, 142),
+      backgroundColor: const Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(
         toolbarHeight: 80,
-        backgroundColor: Color.fromARGB(255, 245, 200, 64),
-        title: Text('Edit Content'),
+        backgroundColor: const Color.fromARGB(255, 245, 200, 64),
+        title: const Text('Edit Content'),
         titleTextStyle: const TextStyle(
             fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w600),
         actions: [
@@ -49,7 +48,7 @@ class _CPEditContentState extends State<CPEditContent> {
                     ),
                     Navigator.pop(context, true)
                   },
-              icon: Icon(
+              icon: const Icon(
                 Icons.delete,
                 color: Colors.black87,
                 size: 30,
@@ -66,7 +65,7 @@ class _CPEditContentState extends State<CPEditContent> {
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   focusColor: Colors.blue,
-                  labelStyle: TextStyle(color: Colors.black87),
+                  labelStyle: const TextStyle(color: Colors.black87),
                   labelText: 'Module',
                   filled: true,
                   fillColor: Colors.grey.shade300,
@@ -80,21 +79,23 @@ class _CPEditContentState extends State<CPEditContent> {
                 ),
                 controller: moduleController,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: inputDecoration('Title'),
                 controller: titleController,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                minLines: 2,
+                maxLines: 5,
+                style: const TextStyle(color: Colors.black),
                 decoration: inputDecoration('Description'),
                 controller: descController,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: inputDecoration('URL'),
                 controller: urlController,
               ),
@@ -113,14 +114,14 @@ class _CPEditContentState extends State<CPEditContent> {
           children: [
             MaterialButton(
               color: Colors.red.shade400,
-              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
               child: const Text('Cancel'),
               onPressed: () => {Navigator.of(context).pop()},
             ),
             MaterialButton(
-              color: Color.fromARGB(255, 245, 200, 64),
-              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              color: const Color.fromARGB(255, 245, 200, 64),
+              padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
               child: const Text('Save Changes'),
               onPressed: () {
@@ -143,7 +144,7 @@ class _CPEditContentState extends State<CPEditContent> {
   InputDecoration inputDecoration(String labelText) {
     return InputDecoration(
       focusColor: Colors.blue,
-      labelStyle: TextStyle(color: Colors.black87),
+      labelStyle: const TextStyle(color: Colors.black87),
       labelText: labelText,
       fillColor: Colors.white,
       filled: true,

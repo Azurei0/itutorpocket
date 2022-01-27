@@ -70,21 +70,13 @@ class _CPAddContentState extends State<CPAddContent> {
     );
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 42, 147, 142),
+      backgroundColor: const Color.fromARGB(255, 42, 147, 142),
       appBar: AppBar(
         toolbarHeight: 80,
-        backgroundColor: Color.fromARGB(255, 245, 200, 64),
+        backgroundColor: const Color.fromARGB(255, 245, 200, 64),
         title: const Text('Add Content'),
         titleTextStyle: const TextStyle(
             fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w600),
-        actions: [
-          IconButton(
-              onPressed: () => {},
-              icon: Icon(
-                Icons.delete,
-                color: Colors.black87,
-              )),
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -110,7 +102,7 @@ class _CPAddContentState extends State<CPAddContent> {
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   focusColor: Colors.blue,
-                  labelStyle: TextStyle(color: Colors.black87),
+                  labelStyle: const TextStyle(color: Colors.black87),
                   labelText: 'Module',
                   fillColor: Colors.white,
                   filled: true,
@@ -126,19 +118,21 @@ class _CPAddContentState extends State<CPAddContent> {
               ),
               const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: inputDecoration('Title'),
                 controller: titleController,
               ),
               const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
+                minLines: 2,
+                maxLines: 5,
                 decoration: inputDecoration('Description'),
                 controller: descController,
               ),
               const SizedBox(height: 30),
               TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: inputDecoration('URL'),
                 controller: urlController,
               ),
@@ -157,16 +151,16 @@ class _CPAddContentState extends State<CPAddContent> {
           children: [
             MaterialButton(
               color: Colors.red.shade400,
-              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () => {Navigator.of(context).pop()},
             ),
             MaterialButton(
-              color: Color.fromARGB(255, 245, 200, 64),
-              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              color: const Color.fromARGB(255, 245, 200, 64),
+              padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
               minWidth: MediaQuery.of(context).size.width / 2.5,
-              child: Text('Add Content'),
+              child: const Text('Add Content'),
               onPressed: () {
                 widget.db.addContent(
                   course: _selectedCourse,
